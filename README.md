@@ -18,3 +18,4 @@ All the dependencies here!
 ## Lets dance
 Some useful information here!
 e.g.: How to use Baxxter?
+### How to dance salsa?
