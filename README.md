@@ -8,7 +8,9 @@
 Some useless information here!
 ## Entangled Threads: Navigating the Web of Dependencies
 All the dependencies here!
-1. Python (some version but **not python 2!!!**) 
+1. Python (some version but **not python 2!!!**)
+2. Maybe docker?!?!
+3. Some cogs (also spelled coks or cocks)
 ## Installation Demystified: Your Step-by-Step Guide
 * `git clone https://github.com/karrni/baxxter`
 * Some other steps
