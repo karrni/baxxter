@@ -10,30 +10,46 @@ class Music(commands.Cog):
 
     @commands.command(name="play")
     async def play(self, ctx, url: str):
+        if not ctx.message.author.voice:
+            await ctx.send("youre not in a voice channel my guy")
+            return
+
         channel = ctx.message.author.voice.channel
-        voice_channel = await channel.connect()
 
-        parsed_url = yarl.URL(url)
-        domain = parsed_url.host
+        voice_client = discord.utils.get(self.bot.voice_clients, guild=ctx.guild)
+        if voice_client and voice_client.is_connected():
+            await voice_client.move_to(channel)
+        else:
+            voice_client = await channel.connect()
 
-        supported_domains = (
-            "www.youtube.com",
-            "youtube.com",
-            "soundcloud.com",
-            "www.soundcloud.com",
-        )
+        ytdl_opts = {
+            "format": "bestaudio/best",
+            "extractaudio": True,
+            "outtmpl": "%(extractor)s-%(id)s-%(title)s.%(ext)s",
+            "restrictfilenames": True,
+            "audioformat": "mp3",
+            "noplaylist": True,
+        }
 
-        if domain in supported_domains:
-            ytdl_opts = {"format": "bestaudio"}
+        ffmpeg_opts = {
+            "before_options": "-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5",
+            "options": "-vn",
+        }
 
-            with yt_dlp.YoutubeDL(ytdl_opts) as ytdl:
+        with yt_dlp.YoutubeDL(ytdl_opts) as ytdl:
+            try:
                 info = ytdl.extract_info(url, download=False)
                 audio_url = info["url"]
-                voice_channel.play(
-                    discord.FFmpegPCMAudio(executable="ffmpeg", source=audio_url)
+                print(audio_url)
+                voice_client.play(
+                    discord.FFmpegPCMAudio(
+                        executable="ffmpeg", source=audio_url, **ffmpeg_opts
+                    )
                 )
-        else:
-            voice_channel.play(discord.FFmpegPCMAudio(executable="ffmpeg", source=url))
+
+            except Exception as e:
+                await ctx.send(f"error: {e}")
+                return
 
     @commands.command()
     async def pause(self, ctx):
