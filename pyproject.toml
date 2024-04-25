@@ -7,6 +7,10 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
+python-decouple = "^3.8"
+yt-dlp = "^2024.4.9"
+yarl = "^1.9.4"
+discord-py = {version = "^2.3.2", extras = ["voice"]}
 
 
 [tool.poetry.group.dev.dependencies]
@@ -16,7 +20,6 @@ ruff = "^0.4.2"
 
 
 [tool.poetry.group.voice.dependencies]
-discord-py = "^2.3.2"
 
 [build-system]
 requires = ["poetry-core"]
