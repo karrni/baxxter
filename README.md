@@ -19,3 +19,5 @@ All the dependencies here!
 Some useful information here!
 e.g.: How to use Baxxter?
 ### How to dance salsa?
+* `/play http://some.song`
+* reconnecting is always good
