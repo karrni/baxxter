@@ -4,10 +4,14 @@
 
 ![baxxter](misc/baxxter.png)
 
-## Entangled Threads: Navigating the Web of Dependencies
-All the dependencies here!
 ## Delving into the Depths of Insignificant Insights
 Some useless information here!
+## Entangled Threads: Navigating the Web of Dependencies
+All the dependencies here!
+## Installation Demystified: Your Step-by-Step Guide
+* `git clone https://github.com/karrni/baxxter`
+* Some other steps
+* More steps
 ## Lets dance
 Some useful information here!
 e.g.: How to use Baxxter?
