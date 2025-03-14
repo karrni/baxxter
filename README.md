@@ -11,7 +11,7 @@ Some useless information here!
 All the dependencies here!
 1. Python (some version but **not python 2!!!**)
 2. Maybe docker?!?!
-3. Some cogs (also spelled coks or cocks)
+3. Some cogs (also also commonly known as coks or cocks)
 ## Installation Demystified: Your Step-by-Step Guide
 * `git clone https://github.com/karrni/baxxter`
 * Some other steps
